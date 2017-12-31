@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/28 15:51:32 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 01:11:17 by mikim            ###   ########.fr       */
+/*   Updated: 2017/12/31 03:21:36 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int		mandelbrot_iter(t_env *e, long double r, long double i)
 	{
 		i = FT_SQR(r + i) - r1 - i1 + i_scale;
 		r = r1 - i1 + r_scale;
-		r1 = FT_SQR(r);
 		i1 = FT_SQR(i);
+		r1 = FT_SQR(r);
 	}
 	return (iter);
 }

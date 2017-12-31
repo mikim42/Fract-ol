@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/28 15:51:32 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 01:14:15 by mikim            ###   ########.fr       */
+/*   Updated: 2017/12/31 03:22:02 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ int		tricorn_iter(t_env *e, long double r, long double i)
 {
 	long double	r_scale;
 	long double	i_scale;
-	long double tmp;
+	long double r1;
+	long double i1;
 	int			iter;
 
 	r_scale = (2.0 * r - e->wid) / (e->zoom * e->wid / 2) + e->x_fix;
 	i_scale = (2.0 * i - e->hgt) / (e->zoom * e->hgt / 2) + e->y_fix;
 	r = 0;
 	i = 0;
+	r1 = 0;
+	i1 = 0;
 	iter = -1;
-	while (++iter < e->iter && FT_SQR(r) + FT_SQR(i) <= 4)
+	while (++iter < e->iter && r1 + i1 <= 4)
 	{
-		tmp = FT_SQR(r) - FT_SQR(i) + r_scale;
-		i = -2.0 * r * i + i_scale;
-		r = tmp;
+		i = -(FT_SQR(r + i) - r1 - i1) + i_scale;
+		r = r1 - i1 + r_scale;
+		i1 = FT_SQR(i);
+		r1 = FT_SQR(r);
 	}
 	return (iter);
 }

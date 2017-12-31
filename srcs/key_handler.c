@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 17:48:52 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 01:12:30 by mikim            ###   ########.fr       */
+/*   Updated: 2017/12/31 03:02:34 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@ void	reset(t_env *e)
 	destroy(e);
 	e->wid = 300;
 	e->hgt = 300;
-	e->color = 0;
 	e->zoom = 1.0;
 	e->y_fix = 0;
 	e->x_fix = 0;
 	e->iter = DEFAULT;
+	if (e->frac == jul || e->frac == fool)
+		e->motion = 1;
 	init_mlx(e);
 	init_color(e);
 }
@@ -77,12 +78,19 @@ void	move(t_env *e, int code)
 
 void	change(t_env *e, int code)
 {
+	e->motion = 0;
 	if (MANDELBROT(code))
 		e->frac = mandel;
 	else if (JULIA(code))
+	{
+		e->motion = 1;
 		e->frac = jul;
+	}
 	else if (FOOLIA(code))
+	{
+		e->motion = 1;
 		e->frac = fool;
+	}
 	else if (SHIP(code))
 		e->frac = ship;
 	else if (TRICORN(code))

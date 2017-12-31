@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/29 00:22:53 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/30 20:19:38 by mikim            ###   ########.fr       */
+/*   Updated: 2017/12/31 02:46:05 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,12 +71,15 @@ void	color_frequency(t_env *e)
 
 	frequency = 0;
 	i = -1;
-	while (++i < FREQUENCY)
+	if (!e->expose)
 	{
-		palette[i] += ((cos(frequency) + 1) * 127.5) * BLUE;
-		palette[i] += ((sin(frequency) + 1) * 127.5) * GREEN;
-		palette[i] += ((-cos(frequency) + 1) * 127.5) * RED;
-		frequency += M_PI / FREQUENCY;
+		while (++i < FREQUENCY)
+		{
+			palette[i] += ((cos(frequency) + 1) * 127.5) * BLUE;
+			palette[i] += ((sin(frequency) + 1) * 127.5) * GREEN;
+			palette[i] += ((-cos(frequency) + 1) * 127.5) * RED;
+			frequency += M_PI / FREQUENCY;
+		}
 	}
 	e->color_set = FREQUENCY;
 	e->palette = palette;

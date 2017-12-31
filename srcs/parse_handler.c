@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:38:48 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 01:11:19 by mikim            ###   ########.fr       */
+/*   Updated: 2017/12/31 02:55:28 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	usage(void)
 {
 	ft_printf("{SET:BO}%s\n", "1: MANDELBROT");
 	ft_printf("%s\n", "2: JULIA");
-	ft_printf("%s\n", "3: PYTHAGOREAN TREE");
-	ft_printf("%s\n", "4: SIERPINSKI TRIANGLE");
-	ft_printf("%s\n\n", "5: SIERPINSKI CARPET");
+	ft_printf("%s\n", "3: FOOLIA");
+	ft_printf("%s\n", "4: BURNING SHIP");
+	ft_printf("%s\n\n", "5: TRICORN");
 	ft_printf("%s\n", "  LOCK: SPACE");
 	ft_printf("%s\n", "  MOVE: WASD or LEFT CLICK");
 	ft_printf("%s\n\n", "CENTER: RIGHT CLICK");
