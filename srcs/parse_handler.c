@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:38:48 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 02:55:28 by mikim            ###   ########.fr       */
+/*   Updated: 2018/01/02 11:13:54 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,20 @@ void	usage(void)
 
 void	init_mlx(t_env *e)
 {
-	e->win = mlx_new_window(e->mlx, e->wid, e->hgt, "Frcatol .mikim");
+	char		*tmp;
+	static char	*s[5] = {
+		"Mandelbrot",
+		"Julia",
+		"Foolia",
+		"Burning Ship",
+		"Tricorn"
+	};
+
+	tmp = ft_strjoin(s[e->frac - 1], " .mikim");
+	e->win = mlx_new_window(e->mlx, e->wid, e->hgt, tmp);
 	e->img = mlx_new_image(e->mlx, e->wid, e->hgt);
 	e->data = (int*)mlx_get_data_addr(e->img, &e->bits, &e->size, &e->endian);
+	free(tmp);
 }
 
 void	init(t_env *e)
@@ -47,6 +58,7 @@ void	init(t_env *e)
 	e->zoom = 1;
 	e->frac = mandel;
 	e->mlx = mlx_init();
+	pthread_mutex_init(&e->mutex, NULL);
 }
 
 void	parse(t_env *e)
