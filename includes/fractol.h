@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:17 by mikim             #+#    #+#             */
-/*   Updated: 2018/01/04 16:26:46 by mikim            ###   ########.fr       */
+/*   Updated: 2018/01/04 16:54:04 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ typedef	struct		s_env
 	int				endian;
 	t_fractol		frac;
 	pthread_mutex_t	mutex;
+	pthread_mutex_t	mutex2; // multithreading
 	int				iter;
 	int				div;
 	int				*palette;
@@ -126,6 +127,15 @@ typedef struct		s_thread
 	int				n;
 	int				thread;
 }					t_thread;
+
+// multithreading
+typedef struct		s_thread2
+{
+	t_env			*e;
+	int				x;
+	int				x1;
+	int				y;
+}					t_thread2;
 
 /*
 **					fractol

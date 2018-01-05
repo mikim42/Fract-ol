@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 21:52:28 by mikim             #+#    #+#             */
-/*   Updated: 2017/12/31 02:36:54 by mikim            ###   ########.fr       */
+/*   Updated: 2018/01/04 17:16:31 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	*plot(void *arg)
 	t_thread	*t;
 
 	t = (t_thread*)arg;
-	pthread_mutex_lock(&t->e->mutex);
+	//pthread_mutex_lock(&t->e->mutex);
 	if (t->e->frac == mandel)
 		mandelbrot(t->e, t->thread, t->n);
 	else if (t->e->frac == jul)
@@ -40,7 +40,7 @@ void	*plot(void *arg)
 		burning_ship(t->e, t->thread, t->n);
 	else if (t->e->frac == corn)
 		tricorn(t->e, t->thread, t->n);
-	pthread_mutex_unlock(&t->e->mutex);
+	//pthread_mutex_unlock(&t->e->mutex);
 	pthread_exit(NULL);
 }
 
