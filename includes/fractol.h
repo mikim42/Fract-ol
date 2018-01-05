@@ -6,7 +6,7 @@
 /*   By: mikim <mikim@student.42.us.org>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 18:40:17 by mikim             #+#    #+#             */
-/*   Updated: 2018/01/02 11:17:02 by mikim            ###   ########.fr       */
+/*   Updated: 2018/01/04 16:26:46 by mikim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 
 # define FREQUENCY 64
 # define GOLD_BLACK 20
-# define COOL 60 
+# define COOL 60
 # define WARM 40
 
 # define RED 65536
